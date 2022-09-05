@@ -9,7 +9,7 @@ import {
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-import Home from "./pages/Home";
+import Home from "./pages/Home/Home";
 
 //establish a new link to the GraphQL server
 const httpLink = createHttpLink({
