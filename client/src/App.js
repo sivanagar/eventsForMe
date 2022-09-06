@@ -12,6 +12,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home/Home";
 import Signup from "./pages/Signup/Signup";
 import Login from "./pages/Login/Login";
+import NoMatch from "./pages/NoMatch";
 
 import { BrowserRouter } from 'react-router-dom'
 import {
@@ -45,6 +46,7 @@ function App() {
         <Route index element={<Home />}></Route>
         <Route path="login" element={<Login />}></Route>
         <Route path="sign-up" element={<Signup />}></Route>
+        <Route path="*" element={<NoMatch />}></Route>
       </Routes>
       </BrowserRouter>
           
