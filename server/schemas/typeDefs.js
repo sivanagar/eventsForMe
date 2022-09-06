@@ -8,7 +8,11 @@ const typeDefs = gql`
     email: String
     events: [Event]
   }
-
+  type Auth {
+    token: ID
+    user: User
+  }
+  
   type Event {
     _id: ID
     title: String
@@ -21,6 +25,12 @@ const typeDefs = gql`
 
   type Query {
     hello: String
+    events: [Event]
+  }
+  type Mutation {
+    addUser(firstName: String!, lastName: String!, email: String!): Auth
+    updateUser(firstName: String, lastName: String, email: String, password: String): User
+    login(email: String!, password: String!): Auth
   }
 `;
 

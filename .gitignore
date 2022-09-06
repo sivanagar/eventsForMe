@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-node_modules
-.env
-=======
 # Logs
 logs
 *.log
@@ -132,4 +128,3 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
->>>>>>> develop
