@@ -11,8 +11,26 @@ const resolvers = {
         throw new Error('No Events exist yet');
       return events
     },
+    userById: async (parent, args, context) => {
+      // ToDo validate user logged in via token
+      //if (context.user) {
+      //const user = await User.findById(context.user._id)
+      const user = await User.findById(args._id)
+      return user;
+      //}
+
+      throw new AuthenticationError('Not logged in');
+    },
   },
   Mutation : {
+    addUser: async (parent, args) => {
+      const user = await User.create(args);
+      //ToDo: create token
+      //const token = signToken(user);
+      const token = "todo create user token"
+
+      return { token, user };
+    },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 

@@ -11,4 +11,14 @@ mutation login($email: String!, $password: String!) {
     }
   }
 }
+
+mutation addUser($username: String!, $email: String!, $password: String!) {
+  addUser(username: $username, email: $email, password: $password) {
+    user {
+      _id
+      email
+      username
+    }
+  }
+}
 `;

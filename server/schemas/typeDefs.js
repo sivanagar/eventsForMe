@@ -26,9 +26,10 @@ const typeDefs = gql`
   type Query {
     hello: String
     events: [Event]
+    userById(_id: String!): User
   }
   type Mutation {
-    addUser(firstName: String!, lastName: String!, email: String!): Auth
+    addUser(username: String!, email: String!, password: String!): Auth
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
   }
