@@ -19,13 +19,11 @@ const Signup = () => {
   };
 
   return (
-    <main className='flex-row justify-center mb-4'>
-      <div className='col-12 col-md-6'>
-        <div className='card'>
-          <h4 className='card-header'>Sign Up</h4>
-          <div className='card-body'>
+   <div> 
+    <h3>Start selling tickets for your event. Sign up below.</h3>
+    <p>Already have an account? <a href="/login">Login</a>.</p>
             <form onSubmit={handleFormSubmit}>
-              <input
+              {/* <input
                 className='form-input'
                 placeholder='Your username'
                 name='username'
@@ -33,21 +31,34 @@ const Signup = () => {
                 id='username'
                 value={formState.username}
                 onChange={handleChange}
-              />
+              /> */}
+              <label>Your Email</label>
               <input
                 className='form-input'
-                placeholder='Your email'
+                // placeholder='Your email'
                 name='email'
                 type='email'
                 id='email'
                 value={formState.email}
                 onChange={handleChange}
               />
+
+              <label>Create Password</label>
               <input
                 className='form-input'
-                placeholder='******'
+                // placeholder='******'
                 name='password'
                 type='password'
+                id='password'
+                value={formState.password}
+                onChange={handleChange}
+              />
+              <label>Confirm Password</label>
+                            <input
+                className='form-input'
+                // placeholder='******'
+                name='confirmPassword'
+                type='confirmPassword'
                 id='password'
                 value={formState.password}
                 onChange={handleChange}
@@ -56,10 +67,7 @@ const Signup = () => {
                 Submit
               </button>
             </form>
-          </div>
-        </div>
-      </div>
-    </main>
+            </div>
   );
 };
 
