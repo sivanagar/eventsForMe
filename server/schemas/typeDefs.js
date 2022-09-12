@@ -20,6 +20,7 @@ const typeDefs = gql`
     description: String
     owner: String
     capacity: Int
+    when: String
     
   }
 
@@ -27,9 +28,12 @@ const typeDefs = gql`
     hello: String
     events: [Event]
     userById(_id: String!): User
+    eventById(_id: String!): Event
   }
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
+    addEvent(title: String!, address: String!, description: String!, owner: String!, capacity: Int!, when: String!): Event
+    updateEvent(_id: String!, title: String!, address: String!, description: String!, owner: String!, capacity: Int!, when: String!): Event
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
   }

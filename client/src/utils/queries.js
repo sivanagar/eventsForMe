@@ -3,6 +3,7 @@ import { gql } from "@apollo/client";
 export const QUERY_EVENTS = gql`
 {
     events {
+        _id
         title
         address
         description
@@ -22,6 +23,19 @@ export const QUERY_USER_BY_ID = gql`
       events {
         
       }
+    }
+  }
+`;
+
+export const QUERY_EVENT_BY_ID = gql`
+  query eventById($_id: String!) {
+    eventById(_id: $_id) {
+      title
+        address
+        description
+        owner
+        capacity
+        when
     }
   }
 `;

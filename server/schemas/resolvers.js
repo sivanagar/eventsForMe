@@ -11,6 +11,16 @@ const resolvers = {
         throw new Error('No Events exist yet');
       return events
     },
+    eventById: async (parent, args, context) => {
+      // ToDo validate user logged in via token
+      //if (context.user) {
+      //const user = await User.findById(context.user._id)
+      const event = await Event.findById(args._id)
+      return event;
+      //}
+
+      throw new AuthenticationError('Not logged in');
+    },
     userById: async (parent, args, context) => {
       // ToDo validate user logged in via token
       //if (context.user) {
@@ -23,6 +33,25 @@ const resolvers = {
     },
   },
   Mutation : {
+    updateEvent: async (parent, args) => {
+      // ToDo: does a user need to be logged in to make event?
+      //ToDo: account for overbooking a venue on the same date and time
+      const updateEvent = await Event.findOneAndUpdate(
+        {_id: args._id}, // look up the event by its id
+        {... args}, // spread new values as arguments, to update values
+        { new: true, runValidators: true });
+
+      return updateEvent;
+
+    },
+     addEvent: async (parent, args) => {
+      // ToDo: does a user need to be logged in to make event?
+      //ToDo: account for overbooking a venue on the same date and time
+      const event = await Event.create(args);
+
+      return event;
+
+    },
     addUser: async (parent, args) => {
       const user = await User.create(args);
       //ToDo: create token
