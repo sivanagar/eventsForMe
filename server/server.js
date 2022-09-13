@@ -34,8 +34,13 @@ startServer();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-//TODO: update before
+
+//TODO: update proper  production build before deploying
 //Serve up static assets
+=======
+// Serve up static assets
+// Keep this out - causes graphql error
+
 // if (process.env.NODE_ENV === "production") {
 //   app.use(express.static(path.join(__dirname, "../client/build")));
 // }
