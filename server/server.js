@@ -37,7 +37,7 @@ app.use(express.json());
 
 //TODO: update proper  production build before deploying
 //Serve up static assets
-=======
+
 // Serve up static assets
 // Keep this out - causes graphql error
 
