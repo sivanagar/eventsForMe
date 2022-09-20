@@ -59,7 +59,7 @@ const Signup = () => {
                 // placeholder='******'
                 name='confirmPassword'
                 type='confirmPassword'
-                id='password'
+                id='confirmPassword'
                 value={formState.password}
                 onChange={handleChange}
               />
