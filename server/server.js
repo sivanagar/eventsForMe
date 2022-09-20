@@ -34,14 +34,20 @@ startServer();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-// Serve up static assets
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../client/build")));
-}
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"));
-});
+//TODO: update proper  production build before deploying
+//Serve up static assets
+
+// Serve up static assets
+// Keep this out - causes graphql error
+
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static(path.join(__dirname, "../client/build")));
+// }
+
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../client/build/index.html"));
+// });
 
 db.once("open", () => {
   app.listen(PORT, () => {
