@@ -13,7 +13,8 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import Home from "./pages/Home/Home";
 import Signup from "./pages/Signup/Signup";
 import Login from "./pages/Login/Login";
-import CreateEvent from "./pages/CreateEvent";
+import CreateEvent from "./pages/CreateEvent/CreateEvent";
+
 
 import NoMatch from "./pages/NoMatch";
 
@@ -44,7 +45,7 @@ function App() {
               <Route path="login" element={<Login />}></Route>
               <Route path="sign-up" element={<Signup />}></Route>
               <Route path="dashboard" element={<Dashboard />}></Route>
-              <Route path="creatEvent" element={<CreateEvent />}></Route>
+              <Route path="create-event" element={<CreateEvent />}></Route>
               <Route path="*" element={<NoMatch />}></Route>
             </Routes>
           </BrowserRouter>
