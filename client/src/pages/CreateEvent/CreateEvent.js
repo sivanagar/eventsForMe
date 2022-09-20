@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 //TODO
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
+// import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+// import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+// import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
 
 const Signup = () => {
   const [formState, setFormState] = useState({
@@ -41,7 +41,7 @@ const Signup = () => {
           onChange={handleChange}
         />
         <label>Event Date and Time</label>
-        //TODO Datepicker
+        {/* //TODO Datepicker */}
         <label>Event Location</label>
         <input
           className="form-input"
