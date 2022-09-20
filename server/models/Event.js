@@ -27,7 +27,15 @@ const eventSchema = new Schema(
           when: {
             type: Date,
             required: true,
-          }
+          },
+          // category: {
+          //   type: String,
+          //   required: true,
+          // },
+          // ticketPrice: {
+          //   type: Number,
+          //   required: true,
+          //   },
 
     }
 )

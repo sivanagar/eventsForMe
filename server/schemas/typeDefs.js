@@ -27,6 +27,7 @@ const typeDefs = gql`
   type Query {
     hello: String
     events: [Event]
+    users: [User]
     userById(_id: String!): User
     eventById(_id: String!): Event
   }
