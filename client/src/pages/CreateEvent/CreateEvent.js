@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 //TODO
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-// import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-// import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import  TextField  from "@mui/material/TextField/TextField";
 
 const Signup = () => {
   const [formState, setFormState] = useState({
@@ -27,6 +27,7 @@ const Signup = () => {
   };
 
   return (
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
     <div>
       <h3>Create Event</h3>
 
@@ -40,8 +41,52 @@ const Signup = () => {
           value={formState.input}
           onChange={handleChange}
         />
+              <br />
         <label>Event Date and Time</label>
-        {/* //TODO Datepicker */}
+        <br />
+        <br />
+        <TextField
+        id="date"
+        label="Event Date"
+        type="date"
+        defaultValue=""
+        sx={{ width: 220 }}
+        InputLabelProps={{
+          shrink: true,
+        }}
+      />
+      <br />
+      <br />
+      <TextField
+        id="timeStart"
+        label="Event Start"
+        type="time"
+        defaultValue="07:30"
+        InputLabelProps={{
+          shrink: true,
+        }}
+        inputProps={{
+          step: 300, // 5 min
+        }}
+        sx={{ width: 150 }}
+      />
+      <br />
+      <br />
+      <TextField
+        id="timeEnd"
+        label="Event End"
+        type="time"
+        defaultValue="07:30"
+        InputLabelProps={{
+          shrink: true,
+        }}
+        inputProps={{
+          step: 300, // 5 min
+        }}
+        sx={{ width: 150 }}
+      />
+      <br/>
+      <br />
         <label>Event Location</label>
         <input
           className="form-input"
@@ -73,7 +118,9 @@ const Signup = () => {
           Submit
         </button>
       </form>
+      <br />
     </div>
+    </LocalizationProvider>
   );
 };
 
