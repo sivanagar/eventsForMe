@@ -5,7 +5,12 @@
   "proxy": "http://localhost:3001",
   "dependencies": {
     "@apollo/client": "^3.6.9",
+<<<<<<< HEAD
     "@date-io/moment": "^2.15.0",
+=======
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+>>>>>>> develop
     "@mui/material": "^5.10.3",
     "@mui/styled-engine-sc": "^5.10.3",
     "@mui/x-date-pickers": "^5.0.2",
