@@ -72,30 +72,34 @@ const Signup = () => {
       />
       <br />
       <br />
-      <TextField
-        id="timeEnd"
-        label="Event End"
-        type="time"
-        defaultValue="07:30"
-        InputLabelProps={{
-          shrink: true,
-        }}
-        inputProps={{
-          step: 300, // 5 min
-        }}
-        sx={{ width: 150 }}
-      />
-      <br/>
-      <br />
-        <label>Event Location</label>
+        <label>Event Address</label>
         <input
           className="form-input"
-          name="event-location"
+          name="event-street-address"
           type="input"
-          id="event-location"
+          id="event-street-address"
           value={formState.input}
           onChange={handleChange}
         />
+        <label>Event City</label>
+                <input
+          className="form-input"
+          name="event-city"
+          type="input"
+          id="event-city"
+          value={formState.input}
+          onChange={handleChange}
+        />
+        <label>Event Postal Code</label>
+                        <input
+          className="form-input"
+          name="event-postal-code"
+          type="input"
+          id="event-postal-code"
+          value={formState.input}
+          onChange={handleChange}
+        />
+        <br />
         <label>Ticket Quantity</label>
         <input
           className="form-input"
