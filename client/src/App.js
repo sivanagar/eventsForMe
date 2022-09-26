@@ -14,6 +14,7 @@ import Home from "./pages/Home/Home";
 import Signup from "./pages/Signup/Signup";
 import Login from "./pages/Login/Login";
 import CreateEvent from "./pages/CreateEvent/CreateEvent";
+import EventList from "./pages/EventList/EventList";
 
 
 import NoMatch from "./pages/NoMatch";
@@ -46,6 +47,7 @@ function App() {
               <Route path="sign-up" element={<Signup />}></Route>
               <Route path="dashboard" element={<Dashboard />}></Route>
               <Route path="create-event" element={<CreateEvent />}></Route>
+              <Route path="events" element={<EventList />}></Route>
               <Route path="*" element={<NoMatch />}></Route>
             </Routes>
           </BrowserRouter>
