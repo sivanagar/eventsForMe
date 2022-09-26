@@ -109,6 +109,17 @@ const Signup = () => {
           value={formState.number}
           onChange={handleChange}
         />
+
+<label>Ticket Price</label>
+        <input
+          className="form-input"
+          name="ticket-price"
+          type="number"
+          id="ticket-price"
+          placeholder="$0.00"
+          value={formState.number}
+          onChange={handleChange}
+        />
         <label>Description</label>
         <textarea
           className="form-input"
