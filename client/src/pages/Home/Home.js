@@ -7,7 +7,6 @@ const Home = () => {
     <div>
         <a href="/sign-up" >
         <Button variant="outlined">SIGN UP</Button>
-        <FileUpload/>
           </a> 
 
     </div>

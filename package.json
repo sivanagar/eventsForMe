@@ -25,6 +25,6 @@
     "concurrently": "^7.3.0"
   },
   "dependencies": {
-    "aws-sdk": "^2.1228.0"
+    "aws-sdk": "^2.1231.0"
   }
 }
