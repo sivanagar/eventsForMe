@@ -23,6 +23,8 @@
   "homepage": "https://github.com/sivanagar/eventsForMe#readme",
   "devDependencies": {
     "concurrently": "^7.3.0"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1228.0"
   }
- 
 }

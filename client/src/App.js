@@ -9,6 +9,9 @@ import {
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Dashboard from "./components/Dashboard/Dashboard";
+import FileUpload from "./components/FileUpload";
+import FileDownload from "./components/FileDownload";
+
 
 import Home from "./pages/Home/Home";
 import Signup from "./pages/Signup/Signup";
@@ -48,6 +51,9 @@ function App() {
               <Route path="dashboard" element={<Dashboard />}></Route>
               <Route path="create-event" element={<CreateEvent />}></Route>
               <Route path="events" element={<EventList />}></Route>
+              <Route path="file-upload" element={<FileUpload />}></Route>
+              <Route path="file-download" element={<FileDownload />}></Route>
+
               <Route path="*" element={<NoMatch />}></Route>
             </Routes>
           </BrowserRouter>
