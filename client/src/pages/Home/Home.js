@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "@mui/material/Button";
+import FileUpload from "../../components/FileUpload";
 
 const Home = () => {
   return (
