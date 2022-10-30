@@ -3,8 +3,8 @@ import { gql } from '@apollo/client';
 export const LOGIN = gql`
 mutation login($email: String!, $password: String!) {
   login(email: $email, password: $password) {
+    token
     user {
-        token
       _id
       email
       username
@@ -23,10 +23,10 @@ mutation addEvent($title: String!, $address: String!, $description: String!, $ow
       owner
       capacity
       when
-  
   }
 }
 `;
+
 export const UPDATE_EVENT = gql`
 mutation updateEvent($_id: String!, $title: String!, $address: String!, $description: String!, $owner: String!, $capacity: Int!, $when: String!) {
   updateEvent(_id: $_id, title: $title, address: $address, description: $description, owner: $owner, capacity: $capacity, when: $when) {

@@ -76,11 +76,13 @@ const resolvers = {
     addEvent: async (parent, args) => {
       // ToDo: does a user need to be logged in to make event?
       //ToDo: account for overbooking a venue on the same date and time
+      console.log(`In addEvent(args):server/Schemas/resolvers.js 79: ${JSON.stringify(args)}`)
       const event = await Event.create(args);
 
       return event;
     },
     addUser: async (parent, args) => {
+      
       const user = await User.create(args);
       
       const token = signToken(user);
