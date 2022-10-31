@@ -24,7 +24,7 @@ const myBucket = new AWS.S3({
   region: config.region,
 })
 
-function FileUpload() {
+function FileUpload(props) {
   
   const [progress , setProgress] = useState(0);
   const [selectedFile, setSelectedFile] = useState(null);
@@ -56,8 +56,10 @@ function FileUpload() {
   return <div>
       <div>Native SDK File Upload Progress is {progress}%</div>
       <input type="file" onChange={handleFileInput}/>
-      <a href="#" onClick={() => uploadFile(selectedFile)}> Upload to S3</a>
+      <a href="#" onClick={() => { uploadFile(selectedFile) ; props.ParrentHandleFormSubmit() }}> Upload to S3</a>
   </div>
 }
 
 export default FileUpload;
+
+//uploadFile(selectedFile) ; props.ParrentHandleFormSubmit(props.ParrentformState)

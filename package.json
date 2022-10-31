@@ -25,6 +25,7 @@
     "concurrently": "^7.3.0"
   },
   "dependencies": {
-    "aws-sdk": "^2.1231.0"
+    "aws-sdk": "^2.1231.0",
+    "jwt-decode": "^3.1.2"
   }
 }
