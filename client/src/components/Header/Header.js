@@ -11,7 +11,12 @@ const Header = () => {
         <nav>
           <Link to="sign-up">Sign Up</Link>
           <Link to="login">Login</Link>
-          <Link to="/">Logout</Link>
+
+          <Link to="dashboard">Dashboard</Link>
+          <Link to="create-event">Create Event</Link>
+          <Link to="my-tickets">My Tickets</Link>
+          <Link to="account">Account Details</Link>
+          <Link to="/">Log Out</Link>
         </nav>
       </div>
     </header>
