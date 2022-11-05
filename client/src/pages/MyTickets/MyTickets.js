@@ -4,8 +4,12 @@ import { myTicketsSeed } from "./MyTicketsSeed";
 import TicketModal from "../TicketModal";
 
 const MyTickets = () => {
+  const [currentTicket, setCurrentTicket] = useState();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div>
+      {isModalOpen && <TicketModal currentTicket={currentTicket} />}
       <div className="flex-row">
         <div className="col-12">
           <h3>My Tickets</h3>
