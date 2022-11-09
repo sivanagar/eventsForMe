@@ -8,8 +8,15 @@ const MyTickets = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   //onClick function to open modal on one row
-  const toggleModal = (eventName) => {
-    setCurrentTicket({ eventName });
+  const toggleModal = (
+    eventName,
+    time,
+    location,
+    quantity,
+    ticketID,
+    status
+  ) => {
+    setCurrentTicket({ eventName, time, location, quantity, ticketID, status });
     setIsModalOpen(!isModalOpen);
   };
   return (
@@ -29,17 +36,30 @@ const MyTickets = () => {
           </table>
         </div>
         <div className="col-12 flex-row">
-          {myTicketsSeed.map(({ eventName, time, location, quantity }) => (
-            <table key={eventName} className="col-12 justify-flex-start">
-              <tr onClick={() => toggleModal(eventName)}>
-                <td>{eventName}</td>
-                <td>
-                  {time}, {location}
-                </td>
-                <td>{quantity}</td>
-              </tr>
-            </table>
-          ))}
+          {myTicketsSeed.map(
+            ({ eventName, time, location, quantity, ticketID, status }) => (
+              <table key={eventName} className="col-12 justify-flex-start">
+                <tr
+                  onClick={() =>
+                    toggleModal(
+                      eventName,
+                      time,
+                      location,
+                      quantity,
+                      ticketID,
+                      status
+                    )
+                  }
+                >
+                  <td>{eventName}</td>
+                  <td>
+                    {time}, {location}
+                  </td>
+                  <td>{quantity}</td>
+                </tr>
+              </table>
+            )
+          )}
         </div>
       </div>
     </div>

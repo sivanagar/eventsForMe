@@ -3,10 +3,11 @@ import React from "react";
 function TicketModal({ currentTicket }) {
   const { ticketID, status, time, eventName, location, quantity } =
     currentTicket;
+  console.log(location);
   return (
     <div className="modalBackdrop">
       <div className="modalContainer">
-        <h1 className="modalTitle">Ticket Details for ticket {ticketID}</h1>
+        <h1 className="modalTitle">Ticket Details for ticket ID: {ticketID}</h1>
         <div>
           <span>Event: </span>
           <span>{eventName}</span>
