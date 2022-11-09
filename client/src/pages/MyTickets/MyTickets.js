@@ -17,11 +17,13 @@ const MyTickets = () => {
     status
   ) => {
     setCurrentTicket({ eventName, time, location, quantity, ticketID, status });
-    setIsModalOpen(!isModalOpen);
+    setIsModalOpen(!isModalOpen); //used to be set true
   };
   return (
     <div>
-      {isModalOpen && <TicketModal currentTicket={currentTicket} />}
+      {isModalOpen && (
+        <TicketModal currentTicket={currentTicket} onClose={toggleModal} />
+      )}
       <div className="flex-row">
         <div className="col-12">
           <h3>My Tickets</h3>

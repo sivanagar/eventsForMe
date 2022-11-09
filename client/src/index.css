@@ -921,9 +921,13 @@ nav a:hover {
 }
 
 .modalTitle {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 25px;
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 35px;
+}
+
+.modalRow {
+  margin-bottom: 5px;
 }
 
 button {
