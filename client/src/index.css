@@ -1,7 +1,7 @@
 @font-face {
-  font-family: 'Ultra';
+  font-family: "Ultra";
   src: local(Ultra-Regular),
-  url("./fonts/Ultra/Ultra-Regular.ttf") format("truetype");
+    url("./fonts/Ultra/Ultra-Regular.ttf") format("truetype");
 }
 :root {
   --primary: #3c3c3c;
@@ -31,7 +31,7 @@ body {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   font-weight: 400;
   line-height: 1.5;
   font-size: 20px;
@@ -45,16 +45,15 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Ariel', sans-serif;
+  font-family: "Ariel", sans-serif;
   font-weight: 700;
   margin: 5px 0;
   line-height: 1.25;
 }
 
 h1 {
-  font-family: 'Ultra', serif;
+  font-family: "Ultra", serif;
   font-size: 2.25rem;
-
 }
 
 h2 {
@@ -181,13 +180,13 @@ nav a:hover {
   border-radius: var(--border-radius);
 }
 
-[type='radio']:checked,
-[type='radio']:not(:checked) {
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
   position: absolute;
   left: -9999px;
 }
-[type='radio']:checked + label,
-[type='radio']:not(:checked) + label {
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label {
   position: relative;
   padding-left: 25px;
   cursor: pointer;
@@ -197,9 +196,9 @@ nav a:hover {
   margin-right: 0.2rem;
 }
 
-[type='radio']:checked + label:before,
-[type='radio']:not(:checked) + label:before {
-  content: '';
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+  content: "";
   position: absolute;
   left: 0;
   top: 0;
@@ -209,9 +208,9 @@ nav a:hover {
   border-radius: 100%;
   background: #fff;
 }
-[type='radio']:checked + label:after,
-[type='radio']:not(:checked) + label:after {
-  content: '';
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+  content: "";
   width: 12px;
   height: 12px;
   background-color: var(--secondary);
@@ -223,13 +222,13 @@ nav a:hover {
   transition: all 0.2s ease;
 }
 
-[type='radio']:not(:checked) + label:after {
+[type="radio"]:not(:checked) + label:after {
   opacity: 0;
   -webkit-transform: scale(0);
   transform: scale(0);
 }
 
-[type='radio']:checked + label:after {
+[type="radio"]:checked + label:after {
   opacity: 1;
   -webkit-transform: scale(1);
   transform: scale(1);
@@ -898,6 +897,49 @@ nav a:hover {
 
 .col-12 {
   flex: 0 0 100%;
+}
+
+/* modal */
+.modalBackdrop {
+  background: rgba(0, 0, 0, 0.057);
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.modalContainer {
+  background: var(--secondary);
+  border-radius: 5px;
+  max-width: 100%;
+  margin: 50px auto;
+  padding: 15px;
+  width: 960px;
+}
+
+.modalTitle {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 35px;
+}
+
+.modalRow {
+  margin-bottom: 5px;
+}
+
+button {
+  background: var(--dark);
+  border: 0;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  padding: 10px 15px;
 }
 
 /* col-sm */
