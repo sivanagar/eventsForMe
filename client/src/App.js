@@ -6,7 +6,7 @@ import {
   createHttpLink,
 } from "@apollo/client";
 
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 import Footer from "./components/Footer";
 import Dashboard from "./components/Dashboard/Dashboard";
 import FileUpload from "./components/FileUpload";
@@ -38,11 +38,12 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div className="flex-column justify-flex-start min-100-vh">
-        <Header />
-        <div className="container">
-          {/* <Home /> */}
-          <BrowserRouter>
+      <BrowserRouter>
+        <div className="flex-column justify-flex-start min-100-vh">
+          <Header />
+          <div className="container">
+            {/* <Home /> */}
+
             <Routes>
               <Route index element={<Home />}></Route>
               <Route path="login" element={<Login />}></Route>
@@ -56,10 +57,10 @@ function App() {
 
               <Route path="*" element={<NoMatch />}></Route>
             </Routes>
-          </BrowserRouter>
+          </div>
+          <Footer />
         </div>
-        <Footer />
-      </div>
+      </BrowserRouter>
     </ApolloProvider>
   );
 }
