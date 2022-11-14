@@ -15,16 +15,22 @@ const Header = () => {
           <h1>Events For Me</h1>
         </a>
         <nav>
-          <Link to="sign-up">Sign Up</Link>
-          <Link to="login">Login</Link>
-
-          <Link to="dashboard">Dashboard</Link>
-          <Link to="create-event">Create Event</Link>
-          <Link to="my-tickets">My Tickets</Link>
-          <Link to="account">Account Details</Link>
-          <a href="/" onClick={logout}>
-            Log Out
-          </a>
+          {Auth.loggedIn() ? (
+            <>
+              <Link to="dashboard">Dashboard</Link>
+              <Link to="create-event">Create Event</Link>
+              <Link to="my-tickets">My Tickets</Link>
+              <Link to="account">Account Details</Link>
+              <a href="/" onClick={logout}>
+                Log Out
+              </a>
+            </>
+          ) : (
+            <>
+              <Link to="sign-up">Sign Up</Link>
+              <Link to="login">Login</Link>
+            </>
+          )}
         </nav>
       </div>
     </header>
