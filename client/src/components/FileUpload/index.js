@@ -56,7 +56,7 @@ function FileUpload(props) {
   return <div>
       <div>Native SDK File Upload Progress is {progress}%</div>
       <input type="file" onChange={handleFileInput}/>
-      <a href="#" onClick={() => { uploadFile(selectedFile) ; props.ParrentHandleFormSubmit() }}> Upload to S3</a>
+      <button href="#" onClick={() => { uploadFile(selectedFile) ; props.ParrentHandleFormSubmit() }}> Submit New Event</button>
   </div>
 }
 
