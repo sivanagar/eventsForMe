@@ -80,7 +80,7 @@ const resolvers = {
       const event = await Event.create(args);
 
       return event;
-    },
+    },// END addEvent
     addUser: async (parent, args) => {
       
       const user = await User.create(args);
