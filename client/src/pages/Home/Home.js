@@ -3,6 +3,7 @@ import Button from "@mui/material/Button";
 import FileUpload from "../../components/FileUpload";
 import CreateEvent from "../CreateEvent/CreateEvent";
 import Auth from "../../utils/auth";
+import { EventList } from "../EventList/EventList";
 
 const Home = () => {
   const loggedIn = Auth.loggedIn();
@@ -12,6 +13,7 @@ const Home = () => {
         {loggedIn ? null : <Button variant="outlined">SIGN UP</Button>}
       </a>
       {loggedIn ? <CreateEvent /> : ""}
+      <EventList />
     </div>
   );
 };
