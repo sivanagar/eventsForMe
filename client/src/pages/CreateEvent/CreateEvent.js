@@ -1,8 +1,8 @@
 import React, { Component, useState } from "react";
 import { useMutation, useQuery, useLazyQuery } from "@apollo/client";
 //import {QUERY_EVENTS} from "../../utils/queries"
-import { ADD_EVENT, LOGIN, ADD_USER  } from "../../utils/mutations";
-import Auth from '../../utils/auth';
+import { ADD_EVENT, LOGIN, ADD_USER } from "../../utils/mutations";
+import Auth from "../../utils/auth";
 //TODO
 import FileUpload from "../../components/FileUpload";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -10,27 +10,25 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import TextField from "@mui/material/TextField/TextField";
 import { resolveComponentProps } from "@mui/base";
 
+
 const CreateEvent = () => {
   const [formState, setFormState] = useState({
     event_title: "",
     date: "",
     timeStart: "",
-    event_street_address:"",
-    event_city:"",
-    event_postal_code:"",
-    ticket_quantity:0,
-    ticket_price:0.01,
-    description:""
-
+    event_street_address: "",
+    event_city: "",
+    event_postal_code: "",
+    ticket_quantity: 0,
+    ticket_price: 0.01,
+    description: "",
   });
 
-
-  const [addEvent, {error}] = useMutation(ADD_EVENT)
+  const [addEvent, { error }] = useMutation(ADD_EVENT);
   const [login, { error2 }] = useMutation(LOGIN);
   //const { events, loading, error1, data, refetch } = useQuery(QUERY_EVENTS );
   //const [get_events, { loading, error2, data }] = useLazyQuery(QUERY_EVENTS);
   const [addUser, { error3 }] = useMutation(ADD_USER);
-
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -52,36 +50,32 @@ const CreateEvent = () => {
       // Auth.saveInfo(data.addUser.user)
       // Auth.login(data.addUser.token);
       const { data } = await addEvent({
-          variables: { 
-            owner: "635c089755ef180f20fb8535", 
-            capacity: 1, 
-            when: "02-02-23",
-            title: "hope",
-            address: "hope",
-            city: "hope",
-            description: "hope"
-           },
-        });
-
+        variables: {
+          owner: "635c089755ef180f20fb8535",
+          capacity: 1,
+          when: "02-02-23",
+          title: "hope",
+          address: "hope",
+          city: "hope",
+          description: "hope",
+        },
+      });
     } catch (e) {
       console.error(e);
     }
-
-  }
- 
+  };
 
   const submitFormhelper = async (propsFormState) => {
     //this.preventDefault();
-    let tempData
+    let tempData;
     //ToDo Remove Harcoded Owner
     try {
-
       // tempData = await addEvent({
-      //   variables: { 
+      //   variables: {
       //     //...propsFormState,
-      //     // propsFormState.description 
-      //     owner: "635c089755ef180f20fb8535", 
-      //     capacity: "testB", //propsFormState.quantity, 
+      //     // propsFormState.description
+      //     owner: "635c089755ef180f20fb8535",
+      //     capacity: "testB", //propsFormState.quantity,
       //     when: "testB",//propsFormState.date,
       //     title: "testB", //propsFormState.event_title,
       //     address: "testB", //propsFormState.event_street_address,
@@ -89,40 +83,38 @@ const CreateEvent = () => {
       //     description : "testB", //propsFormState.description
       //   }
       // });
-      
+
       const { data } = await addEvent({
-        variables: { 
-          owner: "635c089755ef180f20fb8535", 
-          capacity: 11,//propsFormState.ticket_quantity, 
+        variables: {
+          owner: "635c089755ef180f20fb8535",
+          capacity: 11, //propsFormState.ticket_quantity,
           when: propsFormState.date,
           title: propsFormState.event_title,
           address: propsFormState.event_street_address,
           city: propsFormState.event_city,
-          description: propsFormState.description
-         },
+          description: propsFormState.description,
+        },
       });
-      console.log(`In createEvent, data is: ${JSON.stringify(data)}`)
-      return data
-
     } catch (e) {
-      console.error("gql myCustom error, front-end create event")
+      console.error("gql myCustom error, front-end create event");
       console.error(e);
     }
 
   };// END submitFormhelper
 
-   // submit form
-   const handleFormSubmit = async (event) => {
+  // submit form
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
-    submitFormhelper(formState)
-  }
+    submitFormhelper(formState);
+  };
+
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <div>
         <h3>Create Event</h3>
 
-        <form >
+        <form>
           <label>Event Title</label>
           <input
             className="form-input"
@@ -196,15 +188,19 @@ const CreateEvent = () => {
             className="form-input"
             name="ticket_quantity"
             type="number"
+            min="1"
             id="ticket_quantity"
             onChange={handleChange}
           />
 
           <label>Ticket Price</label>
+          
           <input
             className="form-input"
             name="ticket_price"
             type="number"
+            min="0.00"
+            step="0.01"
             id="ticket_price"
             placeholder="$0.00"
             onChange={handleChange}
@@ -217,9 +213,6 @@ const CreateEvent = () => {
             id="description"
             onChange={handleChange}
           ></textarea>
-          
-
-
         </form>
         <br />
       </div>
@@ -233,6 +226,8 @@ export default CreateEvent;
 
 // <FileUpload ParrentformState={formState}  ParrentHandleFormSubmit={ () =>{submitFormhelper(formState)}} />
 
-{/* <button className="btn d-block w-100" type="submit">
+{
+  /* <button className="btn d-block w-100" type="submit">
           Submit
-        </button> */}
+        </button> */
+}
