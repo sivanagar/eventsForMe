@@ -101,14 +101,15 @@ const CreateEvent = () => {
           description: propsFormState.description
          },
       });
-      
+      console.log(`In createEvent, data is: ${JSON.stringify(data)}`)
+      return data
 
     } catch (e) {
       console.error("gql myCustom error, front-end create event")
       console.error(e);
     }
 
-  };
+  };// END submitFormhelper
 
    // submit form
    const handleFormSubmit = async (event) => {
@@ -222,7 +223,7 @@ const CreateEvent = () => {
         </form>
         <br />
       </div>
-      <FileUpload ParrentformState={formState}  ParrentHandleFormSubmit={ () =>{submitFormhelper(formState)}} />
+      <FileUpload ParrentformState={formState}  ParrentHandleFormSubmit={ () =>{ return submitFormhelper(formState)}} />
       
     </LocalizationProvider>
   );
