@@ -18,6 +18,7 @@ import Login from "./pages/Login/Login";
 import CreateEvent from "./pages/CreateEvent/CreateEvent";
 import { EventList } from "./pages/EventList/EventList";
 import MyTickets from "./pages/MyTickets/MyTickets";
+import Account from "./pages/AccountDetails/AccountDetails";
 
 import NoMatch from "./pages/NoMatch";
 
@@ -54,6 +55,7 @@ function App() {
               <Route path="file-upload" element={<FileUpload />}></Route>
               <Route path="file-download" element={<FileDownload />}></Route>
               <Route path="my-tickets" element={<MyTickets />}></Route>
+              <Route path="account" element={<Account />}></Route>
 
               <Route path="*" element={<NoMatch />}></Route>
             </Routes>
