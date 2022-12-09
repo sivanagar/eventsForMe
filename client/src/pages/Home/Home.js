@@ -12,8 +12,7 @@ const Home = () => {
       <a href="/sign-up">
         {loggedIn ? null : <Button variant="outlined">SIGN UP</Button>}
       </a>
-      {loggedIn ? <CreateEvent /> : ""}
-      <EventList />
+      {loggedIn ? <EventList /> : ""}
     </div>
   );
 };
