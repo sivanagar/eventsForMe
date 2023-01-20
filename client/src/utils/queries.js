@@ -15,16 +15,16 @@ export const QUERY_EVENT_BY_ID = gql`
 
 export const QUERY_EVENTS = gql`
 query events {
-    events {
-        _id
-        title
-        address
-        description
-        owner
-        capacity
-        when
-    }
+  events{
+      _id
+      title
+      address
+      description
+      owner
+      capacity
+      when
   }
+}
 `;
 
 export const QUERY_USER_BY_ID = gql`
@@ -34,7 +34,13 @@ export const QUERY_USER_BY_ID = gql`
       email
       _id
       events {
-        
+        _id
+      title
+      address
+      description
+      owner
+      capacity
+      when 
       }
     }
   }

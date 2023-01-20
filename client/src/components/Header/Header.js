@@ -17,7 +17,7 @@ const Header = () => {
         <nav>
           {Auth.loggedIn() ? (
             <>
-              <Link to="dashboard">Dashboard</Link>
+              <a href="/dashboard">Dashboard</a>
               <Link to="create-event">Create Event</Link>
               <Link to="my-tickets">My Tickets</Link>
               <Link to="account">Account Details</Link>
