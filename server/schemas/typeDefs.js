@@ -3,7 +3,7 @@ const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type User {
-    _id:ID
+    _id: ID
     username: String
     email: String
     events: [Event]
@@ -15,11 +15,12 @@ const typeDefs = gql`
 
   type Ticket {
     _id: ID
+    event: Event
     status: String
-    boughtBy: String
-    eventId: String
+    quantity: Int
+    user: User
   }
-  
+
   type Event {
     _id: ID
     title: String
@@ -28,8 +29,6 @@ const typeDefs = gql`
     owner: String
     capacity: Int
     when: String
-   
-    
   }
 
   type Query {
@@ -41,13 +40,32 @@ const typeDefs = gql`
     tickets: [Ticket]
     ticketById(_id: String!): Ticket
     ticketsByEventId(eventId: String): [Ticket]
-
   }
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
-    addEvent(title: String!, address: String!, description: String!, owner: String!, capacity: Int!, when: String!): Event
-    updateEvent(_id: String!, title: String!, address: String!, description: String!, owner: String!, capacity: Int!, when: String!): Event
-    updateUser(firstName: String, lastName: String, email: String, password: String): User
+    addEvent(
+      title: String!
+      address: String!
+      description: String!
+      owner: String!
+      capacity: Int!
+      when: String!
+    ): Event
+    updateEvent(
+      _id: String!
+      title: String!
+      address: String!
+      description: String!
+      owner: String!
+      capacity: Int!
+      when: String!
+    ): Event
+    updateUser(
+      firstName: String
+      lastName: String
+      email: String
+      password: String
+    ): User
     login(email: String!, password: String!): Auth
     addTicket(eventId: String!): Ticket
   }
