@@ -15,10 +15,9 @@ const typeDefs = gql`
 
   type Ticket {
     _id: ID
-    event: Event
-    status: String
+    eventname: String
     quantity: Int
-    user: User
+    username: String
   }
 
   type Event {
@@ -67,7 +66,7 @@ const typeDefs = gql`
       password: String
     ): User
     login(email: String!, password: String!): Auth
-    addTicket(eventId: String!): Ticket
+    addTicket(eventname: String!, quantity: Int!): Ticket
   }
 `;
 
