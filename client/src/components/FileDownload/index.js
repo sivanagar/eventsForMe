@@ -13,7 +13,7 @@ const config = {
 let img
 
 //----------------------------------------------------------------
-const FileDownload = ( { imageName,imagePrefix } ) => {
+const FileDownload = ( { prefixAndName } ) => {
     //const [ticketNumber, setticketNumber] = useState('monk.jpg');
     
     let [img, setImg] = useState()
@@ -31,12 +31,12 @@ const FileDownload = ( { imageName,imagePrefix } ) => {
     //     e.preventDefault();
     // };
 
-    const handleDownload = (imageName,imagePrefix) => {
+    const handleDownload = (prefixAndName) => {
         const s3 = new AWS.S3();
 
         const params = {
             Bucket: config.bucketName,
-            Key: `${imagePrefix}\\${imageName}`,
+            Key: prefixAndName //`${imagePrefix}\\${imageName}`,
         };
 
         function encode(data) {
@@ -55,14 +55,14 @@ const FileDownload = ( { imageName,imagePrefix } ) => {
     }
 
     useEffect(()=>{
-        handleDownload(imageName, imagePrefix)
+        handleDownload(prefixAndName)
     }, [])
 
     return (
         <>
 
             {
-                imageName? (<img src={`${img}`} width="150px" height="auto" alt='' />) : <></>
+                prefixAndName? (<img src={`${img}`} width="150px" height="auto" alt='' />) : <></>
             }
             
 

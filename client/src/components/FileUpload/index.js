@@ -64,17 +64,21 @@ function FileUpload(props) {
 
     try {
       const tempData = await props.ParrentHandleFormSubmit();
-
+      
+      console.log(`in upload tempdata is : ${tempData}`)
       if (tempData) {
         // if the event submitted sucesfully
         setEventResponse(tempData);
         const dirName2 = tempData.addEvent._id; // recieve a nested object like {addEvent : {_id:123, name: "some string"}}
         // destructure only the data we care about the id
 
-        if (selectedFile)
+        console.log(`selected file : ${dirName2} |  ${JSON.stringify(selectedFile)}`)
+        if (selectedFile){
           // if we suscesfully selected a file, submit the file
+          
           uploadFile(selectedFile, dirName2); // upload the file to aws using the event id as a directory name
-      }
+        }
+        }
       // ToDo Determine else clause when the event fails to submit
     } catch (e) {
       console.log(`Custom error: ${e}`);
