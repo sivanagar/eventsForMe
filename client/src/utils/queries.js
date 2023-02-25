@@ -18,11 +18,15 @@ query events {
     events {
         _id
         title
-        address
+        eventDate
+        time
+        streetAddress
+        city
+        postalCode
         description
-        owner
-        capacity
-        when
+        hostName
+        ticketPrice
+        capacitySize
     }
   }
 `;
