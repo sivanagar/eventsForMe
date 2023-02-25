@@ -26,7 +26,7 @@ import { Routes, Route } from "react-router";
 
 //establish a new link to the GraphQL server
 const httpLink = createHttpLink({
-  uri: "/graphql",
+  uri: "http://localhost:3001/graphql",
 });
 
 const client = new ApolloClient({
