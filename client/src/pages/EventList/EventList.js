@@ -1,39 +1,43 @@
 import React from "react";
-import dummy from "./pexels-thibault-trillet-167636.jpg";
+import { useQuery } from "@apollo/client";
+import { QUERY_EVENTS } from "../../utils/queries";
+
 import EventCard from "./EventListStyles";
 
-import { resultSeed } from "./EventListSeed";
+import dummyImg from "./pexels-thibault-trillet-167636.jpg";
 
-const payloadList = resultSeed.map(
-  ({
-    eventTitle,
-    date,
-    time,
-    address,
-    city,
-    postalCode,
-    description,
-    price,
-  }) => {
-    return (
-      <EventCard>
-        <img src={dummy} alt="" />
+/**
+ * using apollo library to connect to backend localhost
+ * using React Hook useQuery to call backend route of GET all events (query)
+ */
+const EventList = () => {
+  const { loading, data } = useQuery(QUERY_EVENTS);
+  const events = data?.events || [];
+  //console.log(events);
 
-        <h2>{eventTitle}</h2>
-        <h4>{date}</h4>
-        <h4>{time}</h4>
-        <h4>
-          {address}, {city}
-        </h4>
+  return (
+    <div>
+      <h3>Current Events</h3>
+      {events &&
+        events.map((event) => (
+          <EventCard key={event._id}>
+            <img src={dummyImg} alt="Event image" />
+            <h2>{event.title}</h2>
+            <h4>Hosted by: {event.hostName}</h4>
+            <h4>Date: {event.eventDate}</h4>
+            <h4>Starting time: {event.time}</h4>
+            <h4>
+              Address:
+              {event.streetAddress}, {event.city}, {event.postalCode}
+            </h4>
+            <p>{event.description}</p>
+            <h4>Price: {event.ticketPrice}</h4>
+            <h6>Number of tickets left: {event.capacitySize}</h6>
 
-        <p>{description}</p>
-        <h4>{price}</h4>
-        <button>Buy Now</button>
-      </EventCard>
-    );
-  }
-);
-
-export const EventList = () => {
-  return <div>{payloadList}</div>;
+            <button>Buy Now</button>
+          </EventCard>
+        ))}
+    </div>
+  );
 };
+export default EventList;

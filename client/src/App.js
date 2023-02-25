@@ -16,7 +16,7 @@ import Home from "./pages/Home/Home";
 import Signup from "./pages/Signup/Signup";
 import Login from "./pages/Login/Login";
 import CreateEvent from "./pages/CreateEvent/CreateEvent";
-import { EventList } from "./pages/EventList/EventList";
+import EventList from "./pages/EventList/EventList";
 import MyTickets from "./pages/MyTickets/MyTickets";
 
 import NoMatch from "./pages/NoMatch";
