@@ -23,11 +23,15 @@ const typeDefs = gql`
   type Event {
     _id: ID
     title: String
-    address: String
+    eventDate: String
+    time: String
+    streetAddress: String
+    city: String
+    postalCode: String
     description: String
-    owner: String
-    capacity: Int
-    when: String
+    hostName: String
+    ticketPrice: Float
+    capacitySize: Int
   }
 
   type Query {
@@ -42,14 +46,7 @@ const typeDefs = gql`
   }
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
-    addEvent(
-      title: String!
-      address: String!
-      description: String!
-      owner: String!
-      capacity: Int!
-      when: String!
-    ): Event
+    addEvent(title: String!, eventDate: String!, time: String!, streetAddress: String!, city: String!, postalCode: String!, description: String!, hostName: String!, ticketPrice: Float!, capacitySize: Int!): Event
     updateEvent(
       _id: String!
       title: String!

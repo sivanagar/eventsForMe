@@ -7,26 +7,40 @@ const eventSchema = new Schema(
       required: "Title is required",
       trim: true,
     },
-    address: {
+    eventDate: {
+      type: Date,
+      required: true,
+    },
+    time: {
       type: String,
       required: true,
+    },
+    streetAddress: {
+      type: String,
+      required: true,
+    },
+    city: {
+      type: String,
+      required: true,
+    },
+    postalCode: {
+      type: String,
     },
     description: {
       type: String,
       required: "Description is required",
       trim: true,
     },
-    //TODo: use user id . add virtuals to link together
-    owner: {
+    hostName: {
       type: String,
       required: true,
     },
-    capacity: {
+    ticketPrice: {
       type: Number,
       required: true,
     },
-    when: {
-      type: Date,
+    capacitySize: {
+      type: Number,
       required: true,
     },
 
@@ -34,10 +48,6 @@ const eventSchema = new Schema(
     //   type: String,
     //   required: true,
     // },
-    // ticketPrice: {
-    //   type: Number,
-    //   required: true,
-    //   },
   },
   {
     toJSON: {
