@@ -95,6 +95,7 @@ const CreateEvent = () => {
           description: propsFormState.description,
         },
       });
+      return data
     } catch (e) {
       console.error("gql myCustom error, front-end create event");
       console.error(e);

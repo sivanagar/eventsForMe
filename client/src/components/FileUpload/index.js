@@ -26,7 +26,14 @@ function FileUpload(props) {
   const [eventResponse, setEventResponse] = useState(null);
 
   const handleFileInput = (e) => {
-    setSelectedFile(e.target.files[0]);
+    e.preventDefault();
+    console.log(e.target.files)
+    const files = e.target.files;
+    const formData = new FormData();
+   
+    //setSelectedFile(e.target.files[0]);
+    console.log(`files: ${JSON.stringify(files)} `)
+    setSelectedFile(files);
   };
 
   const uploadFile = (_fileObject, _DirName) => {
@@ -64,7 +71,7 @@ function FileUpload(props) {
 
     try {
       const tempData = await props.ParrentHandleFormSubmit();
-
+      
       if (tempData) {
         // if the event submitted sucesfully
         setEventResponse(tempData);
@@ -73,7 +80,12 @@ function FileUpload(props) {
 
         if (selectedFile)
           // if we suscesfully selected a file, submit the file
-          uploadFile(selectedFile, dirName2); // upload the file to aws using the event id as a directory name
+          console.log(`selectedFile -- : `)
+          console.log(selectedFile)
+          for(let i = 0; i < selectedFile.length; i++)
+            uploadFile(selectedFile[i], dirName2);
+          
+          //uploadFile(selectedFile, dirName2); // upload the file to aws using the event id as a directory name
       }
       // ToDo Determine else clause when the event fails to submit
     } catch (e) {
@@ -87,7 +99,7 @@ function FileUpload(props) {
   return (
     <div>
       <div>Native SDK File Upload Progress is {progress}%</div>
-      <input type="file" onChange={handleFileInput} />
+      <input type="file" onChange={handleFileInput} multiple/>
       <button onClick={submitEventHelper}> Submit Event &#38; Photo</button>
     </div>
   );
