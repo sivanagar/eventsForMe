@@ -5,7 +5,7 @@ const { ApolloServer } = require("apollo-server-express");
 
 // import typeDefs and resolvers
 const { typeDefs, resolvers } = require("./schemas");
-const { authMiddleware } = require('./utils/auth');
+const { authMiddleware } = require("./utils/auth");
 
 const db = require("./config/connection");
 
@@ -36,15 +36,14 @@ startServer();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-
 //TODO: update proper  production build before deploying
 
 // Serve up static assets
 // Keep this out - causes graphql error
 
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static(path.join(__dirname, "../client/build")));
-// }
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../client/build")));
+}
 
 // app.get("*", (req, res) => {
 //   res.sendFile(path.join(__dirname, "../client/build/index.html"));
