@@ -27,9 +27,7 @@ const typeDefs = gql`
     description: String
     owner: String
     capacity: Int
-    when: String
-   
-    
+    when: String  
   }
 
   type Query {
