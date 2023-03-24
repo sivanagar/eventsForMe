@@ -22,6 +22,21 @@ AWS.config.update({
 });
 
 const EventCard = ({ eventID, event }) => {
+  let formatDate = "No date Loaded yet."
+  if(event.when){
+    const dateObj = new Date(parseInt(event.when));
+    formatDate = dateObj
+    formatDate = dateObj.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric',
+      hour12: true
+    });
+  }
+    
   let [fileNames, setFileNames] = useState(["empty", "empty"]);
   const handleDownload = (_id) => {
     const s3 = new AWS.S3();
@@ -64,7 +79,7 @@ const EventCard = ({ eventID, event }) => {
 
       <h2>{event.title}</h2>
       <h4>Hosted by: {event.owner}</h4>
-      <h4>Date: {event.when}</h4>
+      <h4>Date: {event.when && formatDate }</h4>
 
       <p>
         Address:
