@@ -32,7 +32,7 @@ const EventCard = ({ eventID, event }) => {
       day: 'numeric',
       hour: 'numeric',
       minute: 'numeric',
-      second: 'numeric',
+      //second: 'numeric',
       hour12: true
     });
   }
