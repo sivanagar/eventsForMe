@@ -28,6 +28,9 @@
     "concurrently": "^7.4.0"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/material": "^5.11.16",
     "aws-sdk": "^2.1231.0",
     "jwt-decode": "^3.1.2"
   }

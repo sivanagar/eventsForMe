@@ -15,6 +15,7 @@ import FileDownload from "./components/FileDownload";
 import Home from "./pages/Home/Home";
 import Signup from "./pages/Signup/Signup";
 import Login from "./pages/Login/Login";
+import Cart from "./components/Cart/Cart";
 import CreateEvent from "./pages/CreateEvent/CreateEvent";
 
 import MyTickets from "./pages/MyTickets/MyTickets";
@@ -42,6 +43,7 @@ function App() {
       <BrowserRouter>
         <div className="flex-column justify-flex-start min-100-vh">
           <Header />
+
           <div className="container">
             {/* <Home /> */}
 
@@ -51,7 +53,8 @@ function App() {
               <Route path="sign-up" element={<Signup />}></Route>
               <Route path="dashboard" element={<Dashboard />}></Route>
               <Route path="create-event" element={<CreateEvent />}></Route>
-              
+              <Route path="cart" element={<Cart />}></Route>
+
               <Route path="file-upload" element={<FileUpload />}></Route>
               <Route path="file-download" element={<FileDownload />}></Route>
               <Route path="my-tickets" element={<MyTickets />}></Route>
