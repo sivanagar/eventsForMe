@@ -17,9 +17,9 @@ const Header = () => {
         <nav>
           {Auth.loggedIn() ? (
             <>
+              <Link to="cart">🛒Cart</Link>
               <a href="/dashboard">Dashboard</a>
               <Link to="create-event">Create Event</Link>
-              <Link to="cart">Cart</Link>
               <Link to="my-tickets">My Tickets</Link>
               <Link to="account">Account Details</Link>
               <a href="/" onClick={logout}>
