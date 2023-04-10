@@ -17,6 +17,7 @@ const Header = () => {
         <nav>
           {Auth.loggedIn() ? (
             <>
+              <Link to="cart">🛒Cart</Link>
               <a href="/dashboard">Dashboard</a>
               <Link to="create-event">Create Event</Link>
               <Link to="my-tickets">My Tickets</Link>
