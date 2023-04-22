@@ -83,10 +83,12 @@ const CreateEvent = () => {
       //     description : "testB", //propsFormState.description
       //   }
       // });
-
+      console.log(`in CreateEvent.js, propsFormState ${JSON.stringify(propsFormState)}`)
       const { data } = await addEvent({
+        
         variables: {
-          owner: "635c089755ef180f20fb8535",
+          //owner: "635c089755ef180f20fb8535"
+          owner: "Null on Purpose",
           capacity: 11, //propsFormState.ticket_quantity,
           when: propsFormState.date,
           title: propsFormState.event_title,
@@ -97,7 +99,7 @@ const CreateEvent = () => {
       });
       return data
     } catch (e) {
-      console.error("gql myCustom error, front-end create event");
+      console.error("gql myCustom error, front-end create event in CreateEvent.js");
       console.error(e);
     }
 
