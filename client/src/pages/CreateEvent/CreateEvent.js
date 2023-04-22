@@ -83,7 +83,6 @@ const CreateEvent = () => {
       //     description : "testB", //propsFormState.description
       //   }
       // });
-      console.log(`in CreateEvent.js, propsFormState ${JSON.stringify(propsFormState)}`)
       const { data } = await addEvent({
         
         variables: {

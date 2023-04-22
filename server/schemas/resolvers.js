@@ -76,8 +76,6 @@ const resolvers = {
     addEvent: async (parent, args, context) => {
       // ToDo: does a user need to be logged in to make event?
       //ToDo: account for overbooking a venue on the same date and time
-      console.log(`In addEvent(args):server/Schemas/resolvers.js 80: ${JSON.stringify(args)}`)
-      console.log(`++++++ context : \n\n\n ${JSON.stringify(context.user._id)}`)
       const event = await Event.create({...args, owner: context.user._id});
 
       return event;
