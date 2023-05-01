@@ -73,11 +73,10 @@ const resolvers = {
 
       return updateEvent;
     },
-    addEvent: async (parent, args) => {
+    addEvent: async (parent, args, context) => {
       // ToDo: does a user need to be logged in to make event?
       //ToDo: account for overbooking a venue on the same date and time
-      console.log(`In addEvent(args):server/Schemas/resolvers.js 79: ${JSON.stringify(args)}`)
-      const event = await Event.create(args);
+      const event = await Event.create({...args, owner: context.user._id});
 
       return event;
     },// END addEvent
@@ -108,7 +107,8 @@ const resolvers = {
       return { token, user };
       // return { user };
     },
-    addTicket: async (parent, args) => {
+    addTicket: async (parent, args, context) => {
+      
       const ticket =  await Ticket.create({status: 'new', eventId: args.eventId});
       console.log(ticket)
       

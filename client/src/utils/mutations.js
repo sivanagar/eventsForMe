@@ -14,7 +14,7 @@ mutation login($email: String!, $password: String!) {
 `;
 
 export const ADD_EVENT = gql`
-mutation addEvent($title: String!, $address: String!, $description: String!, $owner: String!, $capacity: Int!, $when: String!) {
+mutation addEvent($title: String!, $address: String!, $description: String!, $owner: String, $capacity: Int!, $when: String!) {
   addEvent(title: $title, address: $address, description: $description, owner: $owner, capacity: $capacity, when: $when) {
       _id
       title
