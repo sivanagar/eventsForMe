@@ -60,6 +60,7 @@ const Signup = () => {
           id="email"
           value={formState.email}
           onChange={handleChange}
+          required
         />
 
         <label>Create Password</label>
@@ -71,6 +72,8 @@ const Signup = () => {
           id="password"
           value={formState.password}
           onChange={handleChange}
+          required
+          minLength={6}
         />
         <label>Confirm Password</label>
         <input
