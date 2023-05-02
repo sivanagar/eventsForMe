@@ -63,6 +63,7 @@ const Login = (props) => {
           id="email"
           value={formState.email}
           onChange={handleChange}
+          required
         />
 
         <label for="password">Your Password</label>
@@ -74,6 +75,7 @@ const Login = (props) => {
           id="password"
           value={formState.password}
           onChange={handleChange}
+          required
         />
         <h1><span value={error}></span></h1>
         <button className="btn d-block w-100" type="submit">
