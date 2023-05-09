@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN } from "../../utils/mutations";
 import Auth from "../../utils/auth";
+import { ImEye, ImEyeBlocked } from "react-icons/im";
 
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: "", password: "", formErrors: {email: "", password: ""}, emailValid: false, passwordValid: false, formValid: false });
@@ -75,7 +76,9 @@ const Login = (props) => {
           onChange={handleChange}
           required
         />
-        <h1><span value={error}></span></h1>
+       <ImEyeBlocked />
+       <br/>
+       <span class="eye"><ImEye /></span>
         <button className="btn d-block w-100" type="submit">
           Submit
         </button>
