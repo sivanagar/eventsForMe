@@ -48,6 +48,14 @@ const Login = (props) => {
     });
   };
 
+// toggle eye hide and show password
+
+    // toggle the type attribute
+
+    // toggle the eye slash icon
+ 
+
+
   return (
     <div>
       <h3>Login</h3>
@@ -67,6 +75,7 @@ const Login = (props) => {
         />
 
         <label for="password">Your Password</label>
+        <ImEyeBlocked class="closed-eye" id="togglePassword" />
         <input
           className="form-input"
           name="password"
@@ -76,9 +85,9 @@ const Login = (props) => {
           onChange={handleChange}
           required
         />
-       <ImEyeBlocked />
+       
        <br/>
-       <span class="eye"><ImEye /></span>
+       <ImEye class="eye" />
         <button className="btn d-block w-100" type="submit">
           Submit
         </button>
