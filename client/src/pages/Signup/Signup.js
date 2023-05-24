@@ -30,6 +30,7 @@ const Signup = () => {
       });
       Auth.saveInfo(data.addUser.user);
       Auth.login(data.addUser.token);
+
     } catch (e) {
       console.error(e);
     }

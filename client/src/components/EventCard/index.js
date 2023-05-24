@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 //import dummy from "./pexels-thibault-trillet-167636.jpg";
 import { useQuery, useMutation } from "@apollo/client";
@@ -22,8 +23,12 @@ AWS.config.update({
 });
 
 const EventCard = ({ eventID, event }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const currentPath = location.pathname;
+  const [redirectBool, setRedirectBool] = useState(false)
   let formatDate = "No date Loaded yet."
-  if(event.when){
+  if (event.when) {
     const dateObj = new Date(parseInt(event.when));
     formatDate = dateObj
     formatDate = dateObj.toLocaleDateString('en-US', {
@@ -36,7 +41,7 @@ const EventCard = ({ eventID, event }) => {
       hour12: true
     });
   }
-    
+
   let [fileNames, setFileNames] = useState(["empty", "empty"]);
   const handleDownload = (_id) => {
     const s3 = new AWS.S3();
@@ -68,6 +73,12 @@ const EventCard = ({ eventID, event }) => {
     return <h3>No Picture Loaded yet</h3>;
   }
 
+  const navigateOnClick = () => {
+
+    navigate(`/event/${event._id}`);
+
+  };
+
   //console.log(event.when);
   return (
     <div>
@@ -79,7 +90,7 @@ const EventCard = ({ eventID, event }) => {
 
       <h2>{event.title}</h2>
       <h4>Hosted by: {event.owner}</h4>
-      <h4>Date: {event.when && formatDate }</h4>
+      <h4>Date: {event.when && formatDate}</h4>
 
       <p>
         Address:
@@ -87,9 +98,13 @@ const EventCard = ({ eventID, event }) => {
       </p>
 
       <p>{event.description}</p>
+      <p>currentPath: {currentPath}</p>
 
       <p>Number of tickets left: {event.capacity}</p>
-      <button>Buy Now</button>
+      {currentPath === "/dashboard"? 
+      <button onClick={navigateOnClick}>Buy Now</button> : " " 
+      }
+      
     </div>
   );
 };

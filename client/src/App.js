@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 import Dashboard from "./components/Dashboard/Dashboard";
 import FileUpload from "./components/FileUpload";
 import FileDownload from "./components/FileDownload";
+import Event from './components/Event'
 //import { EventList } from "./components/EventList/EventList";
 import Home from "./pages/Home/Home";
 import Signup from "./pages/Signup/Signup";
@@ -71,6 +72,7 @@ function App() {
               <Route path="file-download" element={<FileDownload />}></Route>
               <Route path="my-tickets" element={<MyTickets />}></Route>
               <Route path="account" element={<Account />}></Route>
+              <Route path="event/:_id" element={<Event/>}></Route>
 
               <Route path="*" element={<NoMatch />}></Route>
             </Routes>
