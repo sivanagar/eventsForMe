@@ -9,6 +9,7 @@ export const QUERY_EVENT_BY_ID = gql`
         owner
         capacity
         when
+        _id
     }
   }
 `;

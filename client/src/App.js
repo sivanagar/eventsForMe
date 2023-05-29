@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useEffect} from "react";
+import { StoreProvider } from './utils/GlobalState';
 import {
   ApolloProvider,
   ApolloClient,
@@ -27,6 +28,7 @@ import NoMatch from "./pages/NoMatch";
 import { BrowserRouter } from "react-router-dom";
 import { Routes, Route } from "react-router";
 
+
 //establish a new link to the GraphQL server
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -49,11 +51,14 @@ const client = new ApolloClient({
 
 
 
+
 //wrap JSX with ApolloProvider
 function App() {
   return (
     <ApolloProvider client={client}>
+      
       <BrowserRouter>
+      <StoreProvider>
         <div className="flex-column justify-flex-start min-100-vh">
           <Header />
 
@@ -79,7 +84,10 @@ function App() {
           </div>
           <Footer />
         </div>
+        
+        </StoreProvider>
       </BrowserRouter>
+      
     </ApolloProvider>
   );
 }

@@ -6,6 +6,9 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
+
+
+
 const eventsInCart = [
   {
     title: "Coachella",
@@ -26,6 +29,8 @@ const eventsInCart = [
 ];
 
 const Cart = () => {
+
+ 
   return (
     <div>
       <h2>Cart</h2>
