@@ -78,7 +78,7 @@ function App() {
               <Route path="my-tickets" element={<MyTickets />}></Route>
               <Route path="account" element={<Account />}></Route>
               <Route path="event/:_id" element={<Event/>}></Route>
-
+              
               <Route path="*" element={<NoMatch />}></Route>
             </Routes>
           </div>

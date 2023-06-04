@@ -47,5 +47,13 @@ export const QUERY_USER_BY_ID = gql`
   }
 `;
 
+export const QUERY_CHECKOUT = gql`
+  query getCheckout($events: [ID]!) {
+    checkout(events: $events,) {
+      session
+    }
+  }
+`;
+
 
 

@@ -60,8 +60,86 @@ const resolvers = {
       return tickets;
     },
 
+
+    checkout: async (parent, args, context) => {
+
+      //Takes In: array of event IDs
+     
+        // must swap when deployed
+        //let url = new URL(context.headers.referer).origin;
+        let url = new URL (`http://localhost:3000`);
+        console.log(`URL is ${url}`)
+  
+        //args.products is a array of product ids
+  
+       // helper function to crate an Order Object
+       const order = await createOrder(args)
+      
+  
+        let line_items = [];
+        // Pull data from the DB to pass to stripe
+        // right now we only have IDs or the exceptio for allOther the entire object b/c it was passed as object
+        // populate the remaing object by looking them up by ID
+        // Take the Order loops over each bin, puts each colorObject, addOnOBject, PackageObject, Cities,Object into sortes arrays
+        let { events } = await order
+          .populate('events')
+          .execPopulate();
+        // merge the sorted array of Objects with all CartItem data into one large Array that Stripe can use
+        // We have to do this b/c all we get are ID's and need to build the rest of the Object by using .populate function above
+        // to pull the data from the DB
+        const allProducts = [events]
+        
+        // for each productObject build stripe object
+        // Stripe only cares about prices, name ofitem, description of item, image
+        for  ( key  in allProducts){
+          arrayOfObjects = allProducts[key]
+          for (let i = 0; i < arrayOfObjects.length; i++) {
+            const product = await stripe.products.create({
+              name: arrayOfObjects[i].title,
+              description: arrayOfObjects[i].date,
+              //images: [`${url}/images/${arrayOfObjects[i].image}`]
+            });
+    
+            const price = await stripe.prices.create({
+              product: product._id,
+              unit_amount: arrayOfObjects[i].ticketPrice
+              * 100,
+              currency: 'usd',
+            });
+            
+            line_items.push({
+              price: price.id,
+              quantity: 1
+            });
+          }
+  
+  
+        }
+  
+       
+        // create unqiue cart session with all products
+        // the products are actually the line_items
+        const session = await stripe.checkout.sessions.create({
+          payment_method_types: ['card'], // allow car payment
+          line_items, // our products
+          mode: 'payment',
+          shipping_address_collection: { // allow stripe to ask for shipping address
+            allowed_countries: ['US', 'CA'],
+          },
+          // where to redirect after success
+          success_url: `${url}success?session_id={CHECKOUT_SESSION_ID}`,
+          cancel_url: `${url}` // where to redirect if user clicks back button 
+        });
+  
+        return { session: session.id };
+      },
+
   },
   Mutation: {
+    
+    
+   
+
     updateEvent: async (parent, args) => {
       // ToDo: does a user need to be logged in to make event?
       //ToDo: account for overbooking a venue on the same date and time

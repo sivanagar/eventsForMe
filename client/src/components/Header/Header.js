@@ -6,22 +6,23 @@ import Auth from "../../utils/auth";
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 import { idbPromise } from '../../utils/helpers';
 import { useStoreContext } from '../../utils/GlobalState';
+import Cart from '../Cart/Cart'
 
 const Header = () => {
   /*for log out kill session*/
 
-  const [state, dispatch] = useStoreContext();
-  useEffect(() => {
-    async function getCart() {
-      const cart = await idbPromise('cart', 'get');
-      console.log(`in Header.js:getCart ${JSON.stringify(cart)}`)
-      dispatch({ type: ADD_MULTIPLE_TO_CART, events: [...cart] });
-    }
+  // const [state, dispatch] = useStoreContext();
+  // useEffect(() => {
+  //   async function getCart() {
+  //     const cart = await idbPromise('cart', 'get');
+  //     console.log(`in Header.js:getCart ${JSON.stringify(cart)}`)
+  //     dispatch({ type: ADD_MULTIPLE_TO_CART, events: [...cart] });
+  //   }
   
-    if (!state.cart.length) {
-      getCart();
-    }
-  }, [state.cart.length, dispatch]);
+  //   if (!state.cart.length) {
+  //     getCart();
+  //   }
+  // }, [state.cart.length, dispatch]);
   
 
 
@@ -30,6 +31,8 @@ const Header = () => {
     event.preventDefault();
     Auth.logout();
   };
+
+
   return (
     <header className="bg-secondary mb-4 py-2 flex-row align-center">
       <div className="container flex-row justify-space-between-lg justify-center align-center">
@@ -48,7 +51,7 @@ const Header = () => {
               <a href="/" onClick={logout}>
                 Log Out
               </a>
-              
+              <Cart/>
             </>
           ) : (
             <>

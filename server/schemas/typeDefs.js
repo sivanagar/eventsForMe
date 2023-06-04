@@ -30,6 +30,10 @@ const typeDefs = gql`
     when: String  
   }
 
+  type Checkout {
+    session: ID
+  }
+
   type Query {
     me: User
     events: [Event]
@@ -39,6 +43,7 @@ const typeDefs = gql`
     tickets: [Ticket]
     ticketById(_id: String!): Ticket
     ticketsByEventId(eventId: String): [Ticket]
+    checkout(events: [ID]!): Checkout
 
   }
   type Mutation {
