@@ -1299,10 +1299,6 @@ button {
 }
 
 /* rmg css */
-.eye {
-  cursor: pointer;
-}
-
-.closed-eye {
+#password-eye {
   cursor: pointer;
 }
