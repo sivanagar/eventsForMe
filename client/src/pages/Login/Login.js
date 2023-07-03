@@ -3,10 +3,13 @@ import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN } from "../../utils/mutations";
 import Auth from "../../utils/auth";
+import { ImEye, ImEyeBlocked } from "react-icons/im";
 
 const Login = (props) => {
-  const [formState, setFormState] = useState({ email: "", password: "" });
+  const [formState, setFormState] = useState({ email: "", password: "", formErrors: {email: "", password: ""}, emailValid: false, passwordValid: false, formValid: false });
   const [login, { error }] = useMutation(LOGIN);
+// for hiding and showing password with eye icon
+  const [showPassword, setShowPassword] = useState(false);
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -53,28 +56,38 @@ const Login = (props) => {
       <p>
         Don't have an account yet? <Link to="/sign-up">Sign up.</Link>
       </p>
-      <label for="email">Your Email</label>
+      <label htmlFor="email">Your Email</label>
       <form onSubmit={handleFormSubmit}>
         <input
           className="form-input"
-          // placeholder='Your email'
           name="email"
           type="email"
           id="email"
           value={formState.email}
           onChange={handleChange}
+          required
         />
 
-        <label for="password">Your Password</label>
+        <label htmlFor="password">Your Password </label>
+
+<span id="password-eye" onClick={() => setShowPassword(!showPassword)}>
+{showPassword ? <ImEye />  : <ImEyeBlocked />  }
+</span>
+
+   
         <input
           className="form-input"
-          // placeholder='******'
           name="password"
-          type="password"
+          type={showPassword ? "text" : "password" }
           id="password"
           value={formState.password}
           onChange={handleChange}
+          required
         />
+
+       
+       <br/>
+
         <button className="btn d-block w-100" type="submit">
           Submit
         </button>

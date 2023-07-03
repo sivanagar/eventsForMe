@@ -1297,3 +1297,8 @@ button {
     align-items: center;
   }
 }
+
+/* rmg css */
+#password-eye {
+  cursor: pointer;
+}

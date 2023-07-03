@@ -54,28 +54,28 @@ const Signup = () => {
         <label>Your Email</label>
         <input
           className="form-input"
-          // placeholder='Your email'
           name="email"
           type="email"
           id="email"
           value={formState.email}
           onChange={handleChange}
+          required
         />
 
         <label>Create Password</label>
         <input
           className="form-input"
-          // placeholder='******'
           name="password"
           type="password"
           id="password"
           value={formState.password}
           onChange={handleChange}
+          required
+          minLength={6}
         />
         <label>Confirm Password</label>
         <input
           className="form-input"
-          // placeholder='******'
           name="confirmPassword"
           type="confirmPassword"
           id="confirmPassword"
